@@ -1,15 +1,30 @@
-on: pull_request
+name: CI
+on:
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
-  example_comment_pr:
+  comment_pr:
     runs-on: ubuntu-latest
-    name: An example job to comment a PR
+    permissions: write-all
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      - name: Comment PR
+      - name: Accept PR
         uses: thollander/actions-comment-pull-request@v2
+        if: ${{true}}
+        with:
+        #simulating tests, because there's nothing to test rn
+          message: |
+            PR correct, link to the issue if you haven't already and wait for merge.
+          pr_number: PR_NUMBER
+
+      - name: Deny PR
+        uses: thollander/actions-comment-pull-request@v2
+        if: ${{false}}
         with:
           message: |
-            Hello world ! :wave:
+            PR has flaws, fix them before I can accept.
+          pr_number: PR_NUMBER
+    env:
+      PR_NUMBER: ${{ github.event.number }}
