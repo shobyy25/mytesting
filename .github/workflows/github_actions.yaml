@@ -12,19 +12,10 @@ jobs:
 
       - name: Accept PR
         uses: thollander/actions-comment-pull-request@v2
-        if: ${{true}}
-        with:
-        #simulating tests, because there's nothing to test rn
-          message: |
-            PR correct, link to the issue if you haven't already and wait for merge.
-          pr_number: PR_NUMBER
-
-      - name: Deny PR
-        uses: thollander/actions-comment-pull-request@v2
-        if: ${{false}}
         with:
           message: |
-            PR has flaws, fix them before I can accept.
+            Thank you for contributing. Your request will be accepted soon.
+          reactions: rocket
           pr_number: PR_NUMBER
     env:
       PR_NUMBER: ${{ github.event.number }}
