@@ -11,6 +11,7 @@ jobs:
       - name: Add comment
         uses: peter-evans/create-or-update-comment@5f728c3dae25f329afbe34ee4d08eef25569d79f
         with:
+          issue-number: ${{ github.event.issue.number }}
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           issue-message: "Thank you for finding an issue. We will look into this soon."
         
