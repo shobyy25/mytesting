@@ -9,11 +9,12 @@ jobs:
     permissions: write-all
     steps:
       - uses: actions/checkout@v3
-
+      - name: Set Contributor Name
+        run: echo "CONTRIBUTOR_NAME=$(git log -1 --pretty=format:'%an')" >> $GITHUB_ENV
       - name: Accept PR
         uses: thollander/actions-comment-pull-request@v2
         with:
-          message: "Thank you for contributing. Your request will be accepted soon. ![](https://thumbs.dreamstime.com/z/contribute-d-word-pulled-up-team-giving-sharing-contribution-letters-working-together-donation-worthy-cause-47609276.jpg)"
+          message: "Thank you ${{env.CONTRIBUTOR_NAME }} for contributing. Your request will be accepted soon. ![](https://thumbs.dreamstime.com/z/contribute-d-word-pulled-up-team-giving-sharing-contribution-letters-working-together-donation-worthy-cause-47609276.jpg)"
           reactions: hooray
           pr_number: PR_NUMBER
     env:
