@@ -8,8 +8,7 @@ jobs:
     permissions:
       issues: write
     steps:
-      - name: Add comment
-        uses: actions/first-interaction@v1
+      - uses: actions/first-interaction@v1
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
