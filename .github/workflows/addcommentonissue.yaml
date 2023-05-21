@@ -1,11 +1,9 @@
 name: Add comment
 on:
-  issues:
-    types:
-      - reopened
-      - opened
+  issues
+  
 jobs:
-  add-comment:
+  greeting:
     runs-on: ubuntu-latest
     permissions:
       issues: write
