@@ -1,6 +1,5 @@
-name: Add comment
-on:
-  issues
+name: Adding comment to issues
+on: [issues]
   
 jobs:
   address:
