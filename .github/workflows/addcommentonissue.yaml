@@ -1,18 +1,19 @@
 name: Add comment
 on:
-  issues
+  issues:
+    types:
+      -reopened
+      -opened
   
 jobs:
-  greeting:
+  address:
     runs-on: ubuntu-latest
     permissions:
       issues: write
     steps:
       - name: Add comment
-        uses: peter-evans/create-or-update-comment@5f728c3dae25f329afbe34ee4d08eef25569d79f
+        uses: actions/first-interaction@v1
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
           issue-message: "Thank you for finding an issue. We will look into this soon."
-        
-    env: 
-      issue-number: ${{ github.event.issue.number }}
