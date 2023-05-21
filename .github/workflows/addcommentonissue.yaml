@@ -12,6 +12,6 @@ jobs:
         uses: actions/first-interaction@v1
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          issue-message: |
+          message: |
             Thank you for finding an issue. We will look into this soon.
         
