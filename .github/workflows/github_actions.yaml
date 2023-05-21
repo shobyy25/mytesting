@@ -14,7 +14,7 @@ jobs:
         uses: thollander/actions-comment-pull-request@v2
         with:
           message: "Thank you for contributing. Your request will be accepted soon. ![](https://thumbs.dreamstime.com/z/contribute-d-word-pulled-up-team-giving-sharing-contribution-letters-working-together-donation-worthy-cause-47609276.jpg)"
-          reactions: rocket
+          reactions: hooray
           pr_number: PR_NUMBER
     env:
       PR_NUMBER: ${{ github.event.number }}
